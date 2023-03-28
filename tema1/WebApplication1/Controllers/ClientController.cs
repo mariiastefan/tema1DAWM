@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
 
             if (result == null)
             {
-                return BadRequest("Student not fount");
+                return BadRequest("Client not fount");
             }
 
             return Ok(result);
@@ -45,14 +45,14 @@ namespace WebApplication1.Controllers
 
             if (!result)
             {
-                return BadRequest("Student could not be updated.");
+                return BadRequest("Client could not be updated.");
             }
 
             return result;
         }
 
         [HttpPost("orders-by-cake")]
-        public ActionResult<OrdersByClient> Get_Orders_ByClienId([FromBody] ClientOrdersRequest request)
+        public ActionResult<OrdersByClient> Get_Orders_ByClientId([FromBody] ClientOrdersRequest request)
         {
             var result = clientService.GetOrdersById(request.ClientId, request.CakeType);
             return Ok(result);
