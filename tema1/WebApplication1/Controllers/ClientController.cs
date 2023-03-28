@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
             this.clientService = clientService;
         }
 
-        [HttpGet("/get-all")]
+        [HttpGet("/getAllClients")]
         public ActionResult<List<Client>> GetAll()
         {
             var results = clientService.GetAll();
@@ -25,10 +25,10 @@ namespace WebApplication1.Controllers
             return Ok(results);
         }
 
-        [HttpGet("/get/{studentId}")]
-        public ActionResult<Client> GetById(int studentId)
+        [HttpGet("/get/{clientId}")]
+        public ActionResult<Client> GetById(int clientId)
         {
-            var result = clientService.GetById(studentId);
+            var result = clientService.GetById(clientId);
 
             if (result == null)
             {
@@ -38,10 +38,10 @@ namespace WebApplication1.Controllers
             return Ok(result);
         }
 
-        [HttpPatch("edit-name")]
-        public ActionResult<bool> GetById([FromBody] ClientUpdateDTO studentUpdateModel)
+        [HttpPatch("EDIT")]
+        public ActionResult<bool> GetById([FromBody] ClientUpdateDTO clientUpdateModel)
         {
-            var result = clientService.EditName(studentUpdateModel);
+            var result = clientService.EditName(clientUpdateModel);
 
             if (!result)
             {
@@ -51,7 +51,7 @@ namespace WebApplication1.Controllers
             return result;
         }
 
-        [HttpPost("grades-by-course")]
+        [HttpPost("orders-by-cake")]
         public ActionResult<OrdersByClient> Get_Orders_ByClienId([FromBody] ClientOrdersRequest request)
         {
             var result = clientService.GetOrdersById(request.ClientId, request.CakeType);
