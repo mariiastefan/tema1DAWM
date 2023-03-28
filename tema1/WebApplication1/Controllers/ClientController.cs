@@ -58,6 +58,27 @@ namespace WebApplication1.Controllers
             return Ok(result);
         }
 
+        [HttpDelete("delete/{id}")]
+        public ActionResult<ClientDTO>DeleteClient(int clientId)
+        {
+            try
+            {
+                var clientToDelete = clientService.GetById(clientId);
+
+                if (clientToDelete == null)
+                {
+                    return NotFound($"Client not found");
+                }
+
+                return clientService.DeleteClient(clientId);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Client could not be deleted.");
+            }
+
+        }
+
     }
 }
 

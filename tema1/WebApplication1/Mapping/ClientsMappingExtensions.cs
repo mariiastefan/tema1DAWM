@@ -13,7 +13,7 @@ namespace WebApplication1.Mapping
             result.Id = client.Id;
             result.FullName = client.FirstName + " " + client.LastName;
             result.CakeShopId = client.CakeShopId;
-            result.CakeShopName = client.CakeShop.Name;
+            result.CakeShopName = client.CakeShop?.Name;
             result.Orders = client.Orders.ToOrderDtos();
 
             return result;

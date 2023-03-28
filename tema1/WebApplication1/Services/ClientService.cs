@@ -56,5 +56,10 @@ namespace WebApplication1.Services
 
             return result;
         }
+        public ClientDTO DeleteClient(int clientId)
+        {
+            var result = clientRepository.DeleteClient(clientId);
+            return result.ToClientDto();
+        }
     }
 }

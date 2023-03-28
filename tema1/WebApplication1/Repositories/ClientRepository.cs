@@ -1,4 +1,5 @@
-﻿using WebApplication1.Database;
+﻿using System;
+using WebApplication1.Database;
 using WebApplication1.Entities;
 using WebApplication1.Enums;
 
@@ -40,6 +41,19 @@ namespace WebApplication1.Repositories
                .FirstOrDefault(e => e.Id == clientId);
 
             return result;
+        }
+
+        public Client DeleteClient(int clientId)
+        {
+            var result = DbContext.Clients
+           .FirstOrDefault(e => e.Id == clientId);
+            if (result != null)
+            {
+                DbContext.Clients.Remove(result);
+                return result;
+            }
+
+            return null;
         }
     }
 
