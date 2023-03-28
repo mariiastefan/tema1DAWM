@@ -6,7 +6,7 @@ using WebApplication1.Services;
 namespace WebApplication1.Controllers
 {
     [ApiController]
-    [Route("api/students")]
+    [Route("api/clients")]
     public class ClientController : ControllerBase
     {
         private ClientService clientService { get; set; }
