@@ -5,7 +5,7 @@ namespace WebApplication1.DTOs
     public class ClientUpdateDTO
     {
         /// <summary>
-        ///     Avem nevoie pentru a putea gasi studentul.
+        ///     Avem nevoie pentru a putea gasi clientul.
         ///     Aceasta proprietate este ceruta in acelasi "body" pentru consecventa,
         ///     chiar daca nu face parte din update.
         /// </summary>

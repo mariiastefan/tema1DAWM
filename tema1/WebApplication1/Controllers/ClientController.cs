@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
 
             if (result == null)
             {
-                return BadRequest("Client not fount");
+                return BadRequest("Client not found");
             }
 
             return Ok(result);
